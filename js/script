@@ -6,7 +6,6 @@ window.addEventListener('keydown', function(e) {
 	if(audio === null) return;
 	console.log(audio.duration);
 	audio.play();
-	if(audio.durection - 0.01) audio.pause();
 	key.classList.add('pressed');
 });
 
