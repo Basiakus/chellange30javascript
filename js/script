@@ -1,0 +1,22 @@
+
+window.addEventListener('keydown', function(e) {
+	console.log(e.keyCode);
+	const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+	const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+	if(audio === null) return;
+	console.log(audio.duration);
+	audio.play();
+	if(audio.durection - 0.01) audio.pause();
+	key.classList.add('pressed');
+});
+
+window.addEventListener('keyup', function(e) {
+	const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+	const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+	if(audio === null) return;
+	console.log(audio);
+	audio.pause();
+	audio.currentTime = 0;
+	key.className = key.className.replace('pressed', '');
+});
+
