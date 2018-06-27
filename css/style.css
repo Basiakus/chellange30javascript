@@ -93,11 +93,17 @@
 @media screen and (max-width: 991px) and (orientation: landscape) {
   #keys_perspective {
     width: 90%;
-    min-height: 50%; } }
+    min-height: 50%; }
+    #keys_perspective kbd, #keys_perspective span {
+      font-size: 1.1em;
+      font-weight: normal; } }
 
 @media screen and (min-width: 360px) and (orientation: landscape) {
   #keys_perspective {
     width: 90%;
-    min-height: 50%; } }
+    min-height: 50%; }
+    #keys_perspective kbd, #keys_perspective span {
+      font-size: 1.1em;
+      font-weight: normal; } }
 
 /*# sourceMappingURL=style.css.map */
