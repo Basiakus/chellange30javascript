@@ -90,15 +90,7 @@
     color: #a64dff;
     text-shadow: 1px 1px 10px #b380ff; }
 
-@media screen and (max-width: 991px) and (orientation: landscape) {
-  #keys_perspective {
-    width: 90%;
-    min-height: 50%; }
-    #keys_perspective kbd, #keys_perspective span {
-      font-size: 1.1em;
-      font-weight: normal; } }
-
-@media screen and (min-width: 360px) and (orientation: landscape) {
+@media screen and (max-width: 991px) {
   #keys_perspective {
     width: 90%;
     min-height: 50%; }

@@ -99,17 +99,7 @@
 	}  
 }
 
-@media screen and (max-width: 991px) and (orientation: landscape) {
-	#keys_perspective {
-		width: 90%;
-		min-height: 50%;
-		kbd, span {
-			font-size: 1.1em;
-			font-weight: normal;
-		}
-	}
-}
-@media screen and (min-width: 360px) and (orientation: landscape) {
+@media screen and (max-width: 991px) {
 	#keys_perspective {
 		width: 90%;
 		min-height: 50%;
