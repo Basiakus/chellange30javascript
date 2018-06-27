@@ -1,5 +1,7 @@
 window.onload = function() {
-	window.addEventListener('keydown', function(e) { 
+
+
+	function playSound(e) { 
 		console.log(e.keyCode);
 		const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
 		const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -9,9 +11,9 @@ window.onload = function() {
 		console.log(audio.duration);
 		if (audio.currentTime > audio.duration - 0.1) { //don't repeat sound when key is pressed
 			audio.volume = 0;
-		}
-	});
-	window.addEventListener('keyup', function(e) {
+		};
+	};
+	function resetSound(e) {
 		const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 		const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
 		if(audio === null) return;
@@ -19,5 +21,37 @@ window.onload = function() {
 		audio.pause();
 		audio.currentTime = 0;
 		key.className = key.className.replace('pressed', ''); //remove a class needed for transition
-	});
+	};
+	function playSoundOnScreen(e) {
+		const temporaryParentAttribute = e.target.parentNode.getAttribute('data-key');
+		console.log(temporaryParentAttribute);
+		const key = document.querySelector(`div[data-key="${temporaryParentAttribute}"]`);
+		const audio = document.querySelector(`audio[data-key="${temporaryParentAttribute}"]`);
+		if(audio === null) return;
+		audio.play();
+		key.classList.add('pressed'); //add a class needed for transition
+		console.log(audio.duration);
+		if (audio.currentTime > audio.duration - 0.1) { //don't repeat sound when key is pressed
+			audio.volume = 0;
+		};
+		console.dir(audio);
+		console.dir(key);
+	};
+	function resetSoundOnScreen(e) {
+		const temporaryParentAttribute = e.target.parentNode.getAttribute('data-key');
+		const audio = document.querySelector(`audio[data-key="${temporaryParentAttribute}"]`);
+		const key = document.querySelector(`div[data-key="${temporaryParentAttribute}"]`);
+		if(audio === null) return;
+		audio.volume = 1;
+		audio.pause();
+		audio.currentTime = 0;
+		key.className = key.className.replace('pressed', ''); //remove a class needed for transition
+	}
+
+
+	window.addEventListener('keydown', playSound, false);
+	window.addEventListener('keyup', resetSound, false);
+	window.addEventListener('touchstart', playSoundOnScreen, false);
+	window.addEventListener('touchend', resetSoundOnScreen, false);
+
 };
